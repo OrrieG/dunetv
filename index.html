@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920, height=1080">
+<title>Dune TV</title>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+  <!-- Home: catalog rows -->
+  <div class="screen" id="screen-home">
+    <div class="topbar">
+      <div class="brand">DUNE<span>tv</span></div>
+      <div class="menu">
+        <div class="focusable menu-item" data-action="search" tabindex="0">Search</div>
+        <div class="focusable menu-item" data-action="addons" tabindex="0">Addons</div>
+        <div class="focusable menu-item" data-action="engine" tabindex="0">Engine</div>
+      </div>
+      <div class="status" id="status"></div>
+    </div>
+    <div id="rows"></div>
+  </div>
+
+  <!-- Search -->
+  <div class="screen hidden" id="screen-search">
+    <div class="topbar"><div class="brand">Search</div></div>
+    <input id="search-input" class="focusable" type="text" placeholder="Type and press OK" tabindex="0">
+    <div id="search-results" class="grid"></div>
+  </div>
+
+  <!-- Detail -->
+  <div class="screen hidden" id="screen-detail">
+    <div class="detail-bg" id="detail-bg"></div>
+    <div class="detail-body">
+      <h1 id="detail-title"></h1>
+      <div class="detail-meta" id="detail-meta"></div>
+      <p id="detail-desc"></p>
+      <div id="detail-episodes" class="episodes hidden"></div>
+      <h3>Streams</h3>
+      <div id="detail-streams" class="streams"><div class="dim">Loading…</div></div>
+    </div>
+  </div>
+
+  <!-- Player -->
+  <div class="screen hidden" id="screen-player">
+    <video id="video" autoplay></video>
+    <div id="osd" class="osd">
+      <div class="osd-title" id="osd-title"></div>
+      <div class="osd-bar"><div class="osd-prog" id="osd-prog"></div></div>
+      <div class="osd-line"><span id="osd-time">0:00 / 0:00</span><span id="osd-torrent"></span></div>
+    </div>
+    <div id="buffering" class="buffering hidden">Buffering…<br><small id="buffering-detail"></small></div>
+  </div>
+
+  <!-- Addons / Engine settings -->
+  <div class="screen hidden" id="screen-settings">
+    <div class="topbar"><div class="brand" id="settings-title">Addons</div></div>
+    <div id="settings-body"></div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+</div>
+
+<!-- WebTorrent 1.x: browser bundle with render-media (MSE streaming without a service worker) -->
+<script src="https://cdn.jsdelivr.net/npm/webtorrent@1.9.7/webtorrent.min.js"></script>
+<script src="js/keys.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/addons.js"></script>
+<script src="js/torrent.js"></script>
+<script src="js/player.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
